@@ -55,4 +55,4 @@ jobs:
       - name: Publish package from tag
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
-        run: npm publish artifacts/my-little-team-stackone-ai-2.10.1-lk.0.tgz --tag lk --registry https://npm.pkg.github.com
+        run: npm publish ./artifacts/my-little-team-stackone-ai-2.10.1-lk.0.tgz --tag lk --registry https://npm.pkg.github.com

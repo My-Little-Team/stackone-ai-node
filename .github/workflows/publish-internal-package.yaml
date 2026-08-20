@@ -1,0 +1,56 @@
+name: Publish internal compatibility package
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Immutable source tag to publish
+        required: true
+        default: v2.10.1-lk.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout immutable source tag
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.tag }}
+
+      - name: Verify package provenance
+        shell: bash
+        run: |
+          test "$(git describe --tags --exact-match)" = "${{ inputs.tag }}"
+          test "$(node -p "require('./package.json').name")" = "@my-little-team/stackone-ai"
+          test "$(node -p "require('./package.json').version")" = "2.10.1-lk.0"
+          test "$(node -p "require('./package.json').upstream.commit")" = "0466ab18570c1459bf8f384218f3a1a1915a0341"
+
+      - name: Setup Node.js for GitHub Packages
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: "@my-little-team"
+
+      - name: Install dependencies
+        run: corepack pnpm install --frozen-lockfile
+
+      - name: Build and validate AI SDK 7 compatibility
+        run: |
+          corepack pnpm run build
+          corepack pnpm exec vitest run --project root
+          corepack pnpm exec publint
+
+      - name: Pack package
+        run: |
+          mkdir -p artifacts
+          corepack pnpm pack --pack-destination artifacts
+
+      - name: Publish package from tag
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+        run: npm publish artifacts/my-little-team-stackone-ai-2.10.1-lk.0.tgz --tag lk --registry https://npm.pkg.github.com

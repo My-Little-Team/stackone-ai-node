@@ -66,4 +66,4 @@ jobs:
       - name: Grant apps repository package access
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api --method PUT /orgs/My-Little-Team/packages/npm/%40my-little-team%2Fstackone-ai/repositories/986237635
+        run: gh api --method PUT /orgs/My-Little-Team/packages/npm/stackone-ai/repositories/986237635

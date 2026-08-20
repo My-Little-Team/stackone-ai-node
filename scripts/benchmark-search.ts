@@ -14,7 +14,7 @@
  */
 
 import process from 'node:process';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 
 const QUERIES = [
 	'list events',

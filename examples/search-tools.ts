@@ -9,7 +9,7 @@
  */
 
 import process from 'node:process';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 
 const apiKey = process.env.STACKONE_API_KEY;
 const accountId = process.env.STACKONE_ACCOUNT_ID;

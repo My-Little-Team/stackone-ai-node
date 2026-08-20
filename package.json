@@ -1,6 +1,6 @@
 {
-	"name": "@stackone/ai",
-	"version": "2.10.0",
+	"name": "@my-little-team/stackone-ai",
+	"version": "2.10.1-lk.0",
 	"description": "Tools for agents to perform actions on your SaaS",
 	"keywords": [
 		"agents",
@@ -11,13 +11,17 @@
 		"stackone",
 		"tools"
 	],
-	"homepage": "https://github.com/StackOneHQ/stackone-ai-node#readme",
+	"homepage": "https://github.com/My-Little-Team/stackone-ai-node#readme",
 	"bugs": "https://github.com/StackOneHQ/stackone-ai-node/issues",
 	"license": "Apache-2.0",
 	"author": "StackOne",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StackOneHQ/stackone-ai-node.git"
+		"url": "git+https://github.com/My-Little-Team/stackone-ai-node.git"
+	},
+	"upstream": {
+		"repository": "https://github.com/StackOneHQ/stackone-ai-node",
+		"commit": "0466ab18570c1459bf8f384218f3a1a1915a0341"
 	},
 	"files": [
 		"dist",
@@ -37,6 +41,7 @@
 		"./package.json": "./package.json"
 	},
 	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
 		"exports": {
 			".": {
 				"require": "./dist/index.cjs",
@@ -55,7 +60,6 @@
 		"lint:oxfmt": "oxfmt --no-error-on-unmatched-pattern --check .",
 		"lint:oxlint": "oxlint --max-warnings=0 --type-aware --type-check",
 		"lint:knip": "knip",
-		"preinstall": "npx only-allow pnpm",
 		"prepack": "npm pkg delete scripts.preinstall && pnpm run build",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",

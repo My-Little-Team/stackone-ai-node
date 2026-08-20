@@ -24,8 +24,8 @@
  */
 
 import process from 'node:process';
-import type { JsonObject } from '@stackone/ai';
-import { DEFAULT_DEFENDER_CONFIG, StackOneToolSet, ToolSetConfigError } from '@stackone/ai';
+import type { JsonObject } from '@my-little-team/stackone-ai';
+import { DEFAULT_DEFENDER_CONFIG, StackOneToolSet, ToolSetConfigError } from '@my-little-team/stackone-ai';
 
 const heading = (label: string): void => {
 	console.log(`\n=== ${label} ===`);

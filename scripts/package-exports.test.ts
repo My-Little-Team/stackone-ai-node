@@ -25,14 +25,14 @@ const esmReady = esmEntry !== undefined && existsSync(esmEntry);
 const PUBLIC_API_SAMPLE = ['StackOneToolSet', 'BaseTool', 'StackOneError'] as const;
 
 const CONSUMER_SOURCE = [
-	"import { StackOneToolSet } from '@stackone/ai';",
+	"import { StackOneToolSet } from '@my-little-team/stackone-ai';",
 	'',
 	"export const toolset = new StackOneToolSet({ apiKey: 'test' });",
 	'',
 ].join('\n');
 
 /**
- * Packs the project and unpacks it as `node_modules/@stackone/ai` of a minimal
+ * Packs the project and unpacks it as `node_modules/@my-little-team/stackone-ai` of a minimal
  * consumer project inside `tempDir`, returning the consumer directory.
  *
  * Packing goes through `pnpm pack` because it applies the publishConfig
@@ -53,9 +53,9 @@ async function createConsumerFixture(tempDir: string): Promise<string> {
 	await execFileAsync('tar', ['-xzf', tarballName], { cwd: tempDir });
 
 	const consumerDir = path.join(tempDir, 'consumer');
-	const scopeDir = path.join(consumerDir, 'node_modules', '@stackone');
+	const scopeDir = path.join(consumerDir, 'node_modules', '@my-little-team');
 	await mkdir(scopeDir, { recursive: true });
-	await rename(path.join(tempDir, 'package'), path.join(scopeDir, 'ai'));
+	await rename(path.join(tempDir, 'package'), path.join(scopeDir, 'stackone-ai'));
 
 	await writeFile(
 		path.join(consumerDir, 'package.json'),

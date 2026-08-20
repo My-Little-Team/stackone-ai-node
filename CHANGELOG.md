@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.10.1-lk.0 (2026-08-20)
+
+Internal compatibility prerelease for My Little Team. This artifact contains
+packaging-only changes on top of StackOne upstream commit
+[`0466ab18570c1459bf8f384218f3a1a1915a0341`](https://github.com/StackOneHQ/stackone-ai-node/commit/0466ab18570c1459bf8f384218f3a1a1915a0341),
+the merge commit for upstream PR
+[#379](https://github.com/StackOneHQ/stackone-ai-node/pull/379). The upstream
+source widens the optional AI SDK peer range to `>=5.0.108 <8` and includes its
+AI SDK 7 compatibility tests. No runtime source changes were added by this
+prerelease.
+
 ## [2.10.0](https://github.com/StackOneHQ/stackone-ai-node/compare/v2.9.2...v2.10.0) (2026-07-27)
 
 

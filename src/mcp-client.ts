@@ -24,7 +24,7 @@ interface MCPClient {
  *
  * @example
  * ```ts
- * import { createMCPClient } from '@stackone/ai';
+ * import { createMCPClient } from '@my-little-team/stackone-ai';
  *
  * await using clients = await createMCPClient({
  *   baseUrl: 'https://api.modelcontextprotocol.org',

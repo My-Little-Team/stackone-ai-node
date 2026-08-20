@@ -3,7 +3,7 @@
  */
 
 import process from 'node:process';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 import OpenAI from 'openai';
 
 const apiKey = process.env.STACKONE_API_KEY;

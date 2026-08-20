@@ -8,7 +8,7 @@
  */
 
 import process from 'node:process';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 
 if (!process.env.STACKONE_API_KEY) {
 	console.error('Set STACKONE_API_KEY to run this example.');

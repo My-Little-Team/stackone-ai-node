@@ -10,7 +10,7 @@
 
 import process from 'node:process';
 import { query } from '@anthropic-ai/claude-agent-sdk';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 
 const apiKey = process.env.STACKONE_API_KEY;
 if (!apiKey) {

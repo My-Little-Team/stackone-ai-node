@@ -14,7 +14,7 @@
 
 import process from 'node:process';
 import { openai } from '@ai-sdk/openai';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 import { generateText, stepCountIs } from 'ai';
 
 const apiKey = process.env.STACKONE_API_KEY;

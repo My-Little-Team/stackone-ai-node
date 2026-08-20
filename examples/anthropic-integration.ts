@@ -4,7 +4,7 @@
 
 import process from 'node:process';
 import Anthropic from '@anthropic-ai/sdk';
-import { StackOneToolSet } from '@stackone/ai';
+import { StackOneToolSet } from '@my-little-team/stackone-ai';
 
 const apiKey = process.env.STACKONE_API_KEY;
 if (!apiKey) {

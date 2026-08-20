@@ -62,8 +62,3 @@ jobs:
           else
             npm publish ./artifacts/my-little-team-stackone-ai-2.10.1-lk.0.tgz --tag lk --registry https://npm.pkg.github.com
           fi
-
-      - name: Grant apps repository package access
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api --method PUT /orgs/My-Little-Team/packages/npm/stackone-ai/repositories/986237635

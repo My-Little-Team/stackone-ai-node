@@ -37,18 +37,20 @@ jobs:
           scope: "@my-little-team"
 
       - name: Install dependencies
-        run: corepack pnpm install --frozen-lockfile
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
 
       - name: Build and validate AI SDK 7 compatibility
         run: |
-          corepack pnpm run build
-          corepack pnpm exec vitest run --project root
-          corepack pnpm exec publint
+          pnpm run build
+          pnpm exec vitest run --project root
+          pnpm exec publint
 
       - name: Pack package
         run: |
           mkdir -p artifacts
-          corepack pnpm pack --pack-destination artifacts
+          pnpm pack --pack-destination artifacts
 
       - name: Publish package from tag
         env:
